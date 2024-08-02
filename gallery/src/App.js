@@ -8,7 +8,7 @@ function App() {
   const [term,setTerm]=useState(' ');
 
   useEffect(()=>{
-    fetch(`https://pixabay.com/api/?key=45240813-dfca0b2c82e16fb38149b8704&q=old+cars&image_type=photo&pretty=true`)
+    fetch(`https://pixabay.com/api/?key=45240813-dfca0b2c82e16fb38149b8704&q=green+pots&image_type=photo&pretty=true`)
     .then(res=>res.json())
     .then(data=>
     {
@@ -20,13 +20,13 @@ function App() {
   return (
    <>
    <div className="container mx-auto">
-    <div className="grid gird-cols-3 gap-4">
+      {isloading? <div className="h1 text-6xl text-ceter mx-auto mt-32">Loading...</div>:<div className="md:grid md:grid-cols-3 md:gap-4">
 
-      {images.map(image=>(
-        <ImageCard key={image.id} image={image}></ImageCard>
-      ))}
+        {images.map(image=>(
+          <ImageCard key={image.id} image={image}></ImageCard>
+        ))}
 
-    </div>
+      </div>}
    </div>
    </>
   );
